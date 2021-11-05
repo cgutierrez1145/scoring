@@ -18,23 +18,33 @@ class AlienInvasion:
     def __init__(self):
         """Initialize the game, and create game resources."""
         pygame.init() # initialize all pygame modules
-        self.settings = Settings()
 
+        self.settings = Settings() # Initialize a settings object for the current game
+
+        # Initialize screen for display set_mode(0,0) sets best possible match
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
+
+        # set screen width based on screen dimensions
         self.settings.screen_width = self.screen.get_rect().width
+
+        # set screen width based on screen dimensions
         self.settings.screen_height = self.screen.get_rect().height
+
+        # set title of display (Screen)
         pygame.display.set_caption("Alien Invasion")
 
-        # Create an instance to store game statistics,
-        #   and create a scoreboard.
+        # Create a GameStats instance to store game statistics,
         self.stats = GameStats(self)
-        self.sb = Scoreboard(self)
 
-        self.ship = Ship(self)
+        self.sb = Scoreboard(self) # Create a scoreboard.
+
+        self.ship = Ship(self) # create a Ship instance
+
+        # load alien and ship bitmap images
         self.bullets = pygame.sprite.Group()
         self.aliens = pygame.sprite.Group()
 
-        self._create_fleet()
+        self._create_fleet() # create a fleet instances of alien objects
 
         # Make the Play button.
         self.play_button = Button(self, "Play")
@@ -42,10 +52,10 @@ class AlienInvasion:
     def run_game(self):
         """Start the main loop for the game."""
         while True:
-            self._check_events()
+            self._check_events() # check for keyboard or mouse presses
 
-            if self.stats.game_active:
-                self.ship.update()
+            if self.stats.game_active: # confirm game is running
+                self.ship.update() # 
                 self._update_bullets()
                 self._update_aliens()
 
