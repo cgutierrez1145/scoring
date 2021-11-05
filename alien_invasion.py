@@ -205,15 +205,19 @@ class AlienInvasion:
         """Create the fleet of aliens."""
         # Create an alien and find the number of aliens in a row.
         # Spacing between each alien is equal to one alien width.
-        alien = Alien(self)
-        alien_width, alien_height = alien.rect.size
+        alien = Alien(self) # Instantiate alien 
+        alien_width, alien_height = alien.rect.size # Set alien size
+        # space to left and right of aliens
         available_space_x = self.settings.screen_width - (2 * alien_width)
+        # number of aliens per row (Integer value)
         number_aliens_x = available_space_x // (2 * alien_width)
         
         # Determine the number of rows of aliens that fit on the screen.
-        ship_height = self.ship.rect.height
+        ship_height = self.ship.rect.height # determine size of ship bmp
+        # vertical space for aliens
         available_space_y = (self.settings.screen_height -
                                 (3 * alien_height) - ship_height)
+        # Number of rows [Column height] (Integer value)                      
         number_rows = available_space_y // (2 * alien_height)
         
         # Create the full fleet of aliens.
