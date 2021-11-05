@@ -22,7 +22,7 @@ class Scoreboard:
         self.prep_score()
         self.prep_high_score()
         self.prep_level()
-        self.prep_ships()
+        self.prep_ships() # Show how many ships are left.
 
     def prep_score(self):
         """Turn the score into a rendered image."""

@@ -159,45 +159,47 @@ class AlienInvasion:
         Check if the fleet is at an edge,
           then update the positions of all aliens in the fleet.
         """
-        self._check_fleet_edges()
-        self.aliens.update()
+        self._check_fleet_edges() # Respond appropriately if any aliens have reached an edge.
+        self.aliens.update() # update alien positions
 
         # Look for alien-ship collisions.
         if pygame.sprite.spritecollideany(self.ship, self.aliens):
-            self._ship_hit()
+            self._ship_hit() # Respond to the ship being hit by an alien
 
         # Look for aliens hitting the bottom of the screen.
-        self._check_aliens_bottom()
+        self._check_aliens_bottom() # Check if any aliens have reached the bottom of the screen.
 
     def _check_aliens_bottom(self):
         """Check if any aliens have reached the bottom of the screen."""
-        screen_rect = self.screen.get_rect()
+        screen_rect = self.screen.get_rect() # reference to screen
+        # for each alien bitmap image
         for alien in self.aliens.sprites():
-            if alien.rect.bottom >= screen_rect.bottom:
+            if alien.rect.bottom >= screen_rect.bottom: # if alien is out of bounds
                 # Treat this the same as if the ship got hit.
-                self._ship_hit()
-                break
+                self._ship_hit() # Respond to the ship being hit by an alien
+                break # exit loop
 
     def _ship_hit(self):
         """Respond to the ship being hit by an alien."""
+        # livews are still remaining
         if self.stats.ships_left > 0:
             # Decrement ships_left, and update scoreboard.
-            self.stats.ships_left -= 1
-            self.sb.prep_ships()
+            self.stats.ships_left -= 1 # decrement number of lilves remaining
+            self.sb.prep_ships()  # Show how many ships are left.
             
             # Get rid of any remaining aliens and bullets.
-            self.aliens.empty()
-            self.bullets.empty()
+            self.aliens.empty() # remove remaining aliens
+            self.bullets.empty() # remove remaining bullets
             
             # Create a new fleet and center the ship.
             self._create_fleet() # create a fleet of Instances of alien objects
             self.ship.center_ship() # Center the ship on the screen
             
             # Pause.
-            sleep(0.5)
-        else:
-            self.stats.game_active = False
-            pygame.mouse.set_visible(True)
+            sleep(0.5) # sleep for half a second
+        else: # no lives remaining
+            self.stats.game_active = False # set game inactive
+            pygame.mouse.set_visible(True) # set mouse pointer to visible
 
     def _create_fleet(self):
         """Create the fleet of aliens."""
