@@ -17,7 +17,7 @@ class AlienInvasion:
 
     def __init__(self):
         """Initialize the game, and create game resources."""
-        pygame.init()
+        pygame.init() # initialize all pygame modules
         self.settings = Settings()
 
         self.screen = pygame.display.set_mode((0, 0), pygame.FULLSCREEN)
