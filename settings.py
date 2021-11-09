@@ -6,33 +6,33 @@ class Settings:
         # Screen settings
         self.screen_width = 1200 # set game width to 1200 px
         self.screen_height = 800 # set game height to 800 px
-        self.bg_color = (230, 230, 230) # set game Background-color to nearly white
+        self.bg_color = (45, 45, 45) # set game Background-color to nearly white
 
         # Ship settings
         self.ship_limit = 3 # number of lives
 
         # Bullet settings
-        self.bullet_width = 3 # width of projectile in pixels
-        self.bullet_height = 15 # height of projectile in pixels
-        self.bullet_color = (230, 0, 0) # color of projectile (red)
-        self.bullets_allowed = 3 # number of bullets allowed at any one point in time
+        self.bullet_width =4 # width of projectile in pixels
+        self.bullet_height = 30 # height of projectile in pixels
+        self.bullet_color = (42,245,255) # color of projectile (red)
+        self.bullets_allowed = 5 # number of bullets allowed at any one point in time
 
         # Alien settings
-        self.fleet_drop_speed = 10 # speed that aliens move downward
+        self.fleet_drop_speed = 6 # speed that aliens move downward
 
         # How quickly the game speeds up
-        self.speedup_scale = 1.1
+        self.speedup_scale = 1.0
 
         # How quickly the alien point values increase
-        self.score_scale = 1.5
+        self.score_scale = 1.4
 
         self.initialize_dynamic_settings() # set additional settings
 
     def initialize_dynamic_settings(self):
         """Initialize settings that change throughout the game."""
         self.ship_speed = 1.5 # speed ship moves left and right
-        self.bullet_speed = 3.0 # vertical speed of projectile 
-        self.alien_speed = 1.0 # seed aliens move toward target
+        self.bullet_speed = 2.0 # vertical speed of projectile 
+        self.alien_speed = 0.8 # seed aliens move toward target
 
         # fleet_direction of 1 represents right; -1 represents left.
         self.fleet_direction = 1
