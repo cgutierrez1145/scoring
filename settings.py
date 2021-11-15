@@ -12,7 +12,7 @@ class Settings:
         self.ship_limit = 3 # number of lives
 
         # Bullet settings
-        self.bullet_width =4 # width of projectile in pixels
+        self.bullet_width = 4 # width of projectile in pixels
         self.bullet_height = 30 # height of projectile in pixels
         self.bullet_color = (42,245,255) # color of projectile (red)
         self.bullets_allowed = 5 # number of bullets allowed at any one point in time
@@ -21,7 +21,7 @@ class Settings:
         self.fleet_drop_speed = 6 # speed that aliens move downward
 
         # How quickly the game speeds up
-        self.speedup_scale = 1.0
+        self.speedup_scale = 1.4
 
         # How quickly the alien point values increase
         self.score_scale = 1.4
